@@ -81,5 +81,18 @@ namespace EGCLauncher
                 MessageBox.Show("游戏文件不存在，请检查游戏文件是否完整。", "SOUND VOLTEX EXCEED GEAR 启动器");
             }
         }
+
+        private void launcherButton_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "../launcher/modules/launcher.exe";
+            try
+            {
+                Exec(path, ("konaste.sdvx://login/?tk=" + token).Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
